@@ -114,7 +114,7 @@ router.post('/sendOtp', ValidRequest(SendOtp), async (req, res) => {
 
         const otp = await Otp.create({
             email,
-            otp: Math.floor(Math.random() * 10000),
+            otp: Math.floor(Math.random() * 9000) + 1000, // this will generate 4 digit otp
             expiresIn: new Date().getTime() * 5 * 60 * 1000,
         });
 
